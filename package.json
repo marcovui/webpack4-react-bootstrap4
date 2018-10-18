@@ -1,0 +1,46 @@
+{
+  "name": "webpack4-react-scratch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --mode development --open --THEME=theme-one",
+    "build": "webpack --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-eslint": "^8.2.6",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "copy-webpack-plugin": "^4.5.3",
+    "css-loader": "^1.0.0",
+    "eslint-loader": "^2.1.1",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.4",
+    "node-sass": "^4.9.3",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "uglifyjs-webpack-plugin": "^2.0.1",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.9"
+  },
+  "dependencies": {
+    "autoprefixer": "^9.1.5",
+    "eslint": "^5.7.0",
+    "file-loader": "^2.0.0",
+    "imagemin-mozjpeg": "^7.0.0",
+    "imagemin-webpack-plugin": "^2.3.0",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "sharp": "^0.21.0",
+    "sharp-loader": "^1.1.0"
+  }
+}
