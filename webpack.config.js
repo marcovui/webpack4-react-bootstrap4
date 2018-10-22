@@ -20,7 +20,7 @@ module.exports = (env, argv) => {
 
   return {
     devtool: "source-map", // any "source-map"-like devtool is possible
-    entry: ['./src/app.js', `./src/styles.scss`],
+    entry: ['./src/index.jsx', `./src/assets/_scss/styles.scss`],
     output: {
       path: path.resolve('dist'),
       filename: 'main.js',
@@ -102,6 +102,9 @@ module.exports = (env, argv) => {
           }]
       }
       ]
+    },
+    resolve: {
+      extensions: ['.js', '.jsx', '.css', '.scss']
     }
   }
 };
