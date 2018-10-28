@@ -48,7 +48,8 @@ module.exports = (env, argv) => {
         chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
       }),
       new CopyWebpackPlugin([{
-        from: 'src/assets/images', to: 'assets/images'
+        from: 'src/assets/images', 
+        to: 'assets/images'
       }]),
       new ImageminPlugin({
         test: /\.(jpe?g|png|gif|svg)$/i,

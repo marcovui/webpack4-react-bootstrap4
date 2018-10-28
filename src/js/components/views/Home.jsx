@@ -1,57 +1,32 @@
 import React from 'react';
 import Header from '../structural/Header';
+import HeroParallax from '../features/parallax/HeroParallax';
 
 
-const Home = (props) => {
-  const { title } = props;
-  const { subTitle } = props;
-  return (
-    <div>
-      <Header title={title} />
-      <div className="section">
-        <div className="container">
-          {subTitle}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default Home;
-
-/*
 class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   render() {
     const { title } = this.props;
+    const { subTitle } = this.props;
     return (
-      <div>
-        <Header title={title} />
+      <React.Fragment>
+        <HeroParallax>
+          <Header title={title} />
+        </HeroParallax>
         <div className="section">
           <div className="container">
-            {'aaa'}
+            <div style={{ height: '100vh' }}>
+              {subTitle}
+            </div>
           </div>
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }
-*/
-
-/*
-const Home = (props) => {
-  const { title } = props;
-  const { subTitle } = props;
-  return (
-    <div>
-      <Header title={title} />
-      <div className="section">
-        <div className="container">
-          {subTitle}
-        </div>
-      </div>
-    </div>
-  );
-};
 
 export default Home;
-*/
