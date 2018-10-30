@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../structural/Header';
-import HeroParallax from '../features/parallax/HeroParallax';
+import ReactParallax from '../ReactParallax';
 
 
 class Home extends React.Component {
@@ -14,9 +14,9 @@ class Home extends React.Component {
     const { subTitle } = this.props;
     return (
       <React.Fragment>
-        <HeroParallax>
+        <ReactParallax>
           <Header title={title} />
-        </HeroParallax>
+        </ReactParallax>
         <div className="section">
           <div className="container">
             <div style={{ height: '100vh' }}>
