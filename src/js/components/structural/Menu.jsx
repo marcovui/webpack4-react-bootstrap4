@@ -54,7 +54,7 @@ class Menu extends Component {
     const { isOpen } = this.state;
     return (
       <div>
-        <Navbar dark fixed="top" expand="lg" className="bg-main">
+        <Navbar color="transparent" light fixed="top" expand="lg">
           <div className="container">
             <NavbarBrand href="/">
               {'reactstrap'}
