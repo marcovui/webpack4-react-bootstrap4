@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Parallax, Background } from 'react-parallax';
 
-class HeroParallax extends Component {
+class ReactParallax extends Component {
   constructor() {
     super();
     this.state = {};
@@ -40,8 +40,8 @@ class HeroParallax extends Component {
     );
   }
 }
-export default HeroParallax;
+export default ReactParallax;
 
-HeroParallax.propTypes = {
+ReactParallax.propTypes = {
   children: PropTypes.element.isRequired
 };
