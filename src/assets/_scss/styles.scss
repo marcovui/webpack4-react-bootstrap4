@@ -5,10 +5,6 @@
 @import "../../js/components/Structural/MenuNavigation/style.scss";
 @import "../../js/components/ReactParallax/style.scss";
 
-.bg-dark .navbar-collapse {
-  background: theme-color("dark");
-}
-
 @font-face {
   font-family: OpenSans-Bold;
   src: url(../fonts/OpenSans-Bold.ttf);
