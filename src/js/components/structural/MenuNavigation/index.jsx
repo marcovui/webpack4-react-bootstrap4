@@ -11,7 +11,7 @@ import {
   NavLink,
   withRouter
 } from 'react-router-dom';
-import fakeAuth from '../auth/fakeAuth';
+import fakeAuth from '../../auth/fakeAuth';
 
 const AuthButton = withRouter(
   ({ history }) => fakeAuth.isAuthenticated ? (
@@ -34,7 +34,7 @@ const AuthButton = withRouter(
   )
 );
 
-class Menu extends Component {
+class MenuNavigation extends Component {
   constructor() {
     super();
     this.state = {
@@ -52,15 +52,17 @@ class Menu extends Component {
 
   render() {
     const { isOpen } = this.state;
+    const classIsOpen = isOpen ? 'active' : '';
+
     return (
       <div>
-        <Navbar color="transparent" light fixed="top" expand="lg">
+        <Navbar color="white" light fixed="top" expand="lg">
           <div className="container">
             <NavbarBrand href="/">
               {'reactstrap'}
             </NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
-            <Collapse isOpen={isOpen} navbar>
+            <Collapse navbar className={classIsOpen}>
               <Nav className="ml-auto" navbar>
                 <NavItem>
                   <NavLink exact to="/" className="nav-link">
@@ -97,4 +99,4 @@ class Menu extends Component {
   }
 }
 
-export default Menu;
+export default MenuNavigation;

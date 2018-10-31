@@ -18,7 +18,7 @@ class ReactParallax extends Component {
           bgImageAlt="the cat"
           strength={600}
         >
-          <div style={{ height: '100vh' }}>
+          <div style={{ height: '80vh' }}>
             {children}
           </div>
         </Parallax>

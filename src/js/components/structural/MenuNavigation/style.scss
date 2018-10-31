@@ -1,0 +1,27 @@
+$navbar-w: 250px;
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+  .collapse:not(.show) {
+    display: block;
+  } 
+  .navbar-collapse {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    width: $navbar-w;
+    height: 100vh;
+    background: #fff;
+    transform: translateX(-$navbar-w);
+    transition: transform .2s ease, visibility .2s ease;
+    visibility: hidden;
+    &.active {
+      transform: translateX(0);
+      visibility: visible;
+    }
+  }
+  .navbar-nav .nav-link {
+    padding-right: 1em;
+    padding-left: 1em;
+  }
+ }

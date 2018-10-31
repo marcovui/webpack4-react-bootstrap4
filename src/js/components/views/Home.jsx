@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../structural/Header';
+import Header from '../Structural/Header';
 import ReactParallax from '../ReactParallax';
 
 
@@ -15,7 +15,7 @@ class Home extends React.Component {
     return (
       <React.Fragment>
         <ReactParallax>
-          <Header title={title} />
+          { /* <Header title={title} /> */ }
         </ReactParallax>
         <div className="section">
           <div className="container">
