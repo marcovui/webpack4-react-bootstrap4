@@ -1,18 +1,51 @@
-$navbar-w: 250px;
+$navbar-h: 100px;
+$navbar-sm-h: $navbar-h - 40;
+$sidebar-w: 250px;
 
+.overlay-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.3);
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .2s ease-in, visibility 0s;
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { 
+  .navbar {
+    height: $navbar-h;
+    transition: height .2s ease;
+    &.is-scrolling {
+      height: $navbar-sm-h;
+    }
+  }  
+}
 // Medium devices (tablets, less than 992px)
 @media (max-width: 991.98px) {
+  .navbar {
+    height: $navbar-sm-h;
+    // background: #333 !important;
+  }
   .collapse:not(.show) {
     display: block;
   } 
   .navbar-collapse {
     position: fixed;
-    top: 56px;
+    top: $navbar-sm-h;
     left: 0;
-    width: $navbar-w;
+    width: $sidebar-w;
     height: 100vh;
-    background: #fff;
-    transform: translateX(-$navbar-w);
+    box-shadow: 2px 5px 5px rgba(0,0,0,0.3);
+    transform: translateX(-$sidebar-w);
     transition: transform .2s ease, visibility .2s ease;
     visibility: hidden;
     &.active {
@@ -24,4 +57,7 @@ $navbar-w: 250px;
     padding-right: 1em;
     padding-left: 1em;
   }
+  /* .bg-dark .navbar-collapse {
+    background: theme-color("main");
+  } */
  }

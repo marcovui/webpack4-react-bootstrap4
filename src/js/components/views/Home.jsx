@@ -15,7 +15,7 @@ class Home extends React.Component {
     return (
       <React.Fragment>
         <ReactParallax>
-          { /* <Header title={title} /> */ }
+          <Header title={title} />
         </ReactParallax>
         <div className="section">
           <div className="container">

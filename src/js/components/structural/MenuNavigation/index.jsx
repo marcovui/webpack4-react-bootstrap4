@@ -38,10 +38,27 @@ class MenuNavigation extends Component {
   constructor() {
     super();
     this.state = {
-      isOpen: false
+      isOpen: false,
+      isScrolling: false
     };
 
+    this.handleScroll = this.handleScroll.bind(this);
     this.toggle = this.toggle.bind(this);
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll() {
+    const scrollTop = window.scrollY;
+    this.setState({
+      isScrolling: (scrollTop > 200) === true
+    });
   }
 
   toggle() {
@@ -51,12 +68,13 @@ class MenuNavigation extends Component {
   }
 
   render() {
-    const { isOpen } = this.state;
+    const { isOpen, isScrolling } = this.state;
     const classIsOpen = isOpen ? 'active' : '';
-
+    const classIsScrolling = isScrolling ? 'is-scrolling' : '';
     return (
-      <div>
-        <Navbar color="white" light fixed="top" expand="lg">
+      <React.Fragment>
+        <div className={`overlay-bg ${classIsOpen}`} />
+        <Navbar color="dark" dark fixed="top" expand="lg" className={classIsScrolling}>
           <div className="container">
             <NavbarBrand href="/">
               {'reactstrap'}
@@ -94,7 +112,7 @@ class MenuNavigation extends Component {
             </Collapse>
           </div>
         </Navbar>
-      </div>
+      </React.Fragment>
     );
   }
 }

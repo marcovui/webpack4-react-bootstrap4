@@ -5,10 +5,10 @@ import MainContainer from './components/Structural/MainContainer';
 
 const App = () => (
   <Router>
-    <div>
+    <React.Fragment>
       <MenuNavigation />
       <MainContainer />
-    </div>
+    </React.Fragment>
   </Router>
 );
 

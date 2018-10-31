@@ -2,8 +2,12 @@
 @import "../../../node_modules/bootstrap/scss/bootstrap";
 @import "utilities";
 
-@import "../../js/components/Structural/Menu/style.scss";
+@import "../../js/components/Structural/MenuNavigation/style.scss";
 @import "../../js/components/ReactParallax/style.scss";
+
+.bg-dark .navbar-collapse {
+  background: theme-color("dark");
+}
 
 @font-face {
   font-family: OpenSans-Bold;
