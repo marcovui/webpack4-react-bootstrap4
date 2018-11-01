@@ -1,14 +1,13 @@
 @import "variables";
 @import "../../../node_modules/bootstrap/scss/bootstrap";
-@import "utilities";
 
+
+// Extra
+@import "hamburgers";
+
+// Components
 @import "../../js/components/Structural/MenuNavigation/style.scss";
 @import "../../js/components/ReactParallax/style.scss";
-
-@font-face {
-  font-family: OpenSans-Bold;
-  src: url(../fonts/OpenSans-Bold.ttf);
-}
 
 body {
   font-family: OpenSans-Bold, 'Open Sans', sans-serif;

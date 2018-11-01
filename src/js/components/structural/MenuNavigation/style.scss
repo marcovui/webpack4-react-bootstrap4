@@ -19,6 +19,9 @@ $sidebar-w: 250px;
   }
 }
 
+.navbar {
+  border-bottom: 1px solid #333;
+}
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   .navbar {
@@ -30,7 +33,7 @@ $sidebar-w: 250px;
     &.is-scrolling {
       height: $navbar-sm-h;
       &.bg-dark {
-        background: theme-color("dark") !important;
+        background: rgba(theme-color("dark"), .9) !important;
       }
     }
   }  
@@ -47,21 +50,29 @@ $sidebar-w: 250px;
   .navbar-collapse {
     position: fixed;
     top: $navbar-sm-h;
-    left: 0;
+    left: -$sidebar-w;
     width: $sidebar-w;
     height: 100vh;
     box-shadow: 2px 5px 5px rgba(0,0,0,0.3);
-    transform: translateX(-$sidebar-w);
+    transform: translateX(0);
     transition: transform .2s ease, visibility .2s ease;
     visibility: hidden;
     &.active {
-      transform: translateX(0);
+      transform: translateX($sidebar-w);
       visibility: visible;
     }
   }
-  .navbar-nav .nav-link {
-    padding-right: 1em;
-    padding-left: 1em;
+  .navbar-nav {
+    .nav-item {
+      border-bottom: 1px solid #404040;
+    }
+    .nav-link {
+      padding: 1em;
+      border-bottom: 1px solid #333;
+      &:hover {
+        background: lighten(theme-color("dark"), 1%);
+      }
+    }
   }
   .bg-dark .navbar-collapse {
     background: theme-color("dark");

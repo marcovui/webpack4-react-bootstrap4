@@ -10,13 +10,15 @@ class ReactParallax extends Component {
 
   render() {
     const { children } = this.props;
+    const { bgImage, bgImageAlt, strength } = this.props;
+
     return (
       <div>
         {/* -----basic config-----*/}
         <Parallax
-          bgImage="/assets/images/milkyway.jpg"
-          bgImageAlt="the cat"
-          strength={600}
+          bgImage={bgImage}
+          bgImageAlt={bgImageAlt}
+          strength={strength}
         >
           <div style={{ height: '80vh' }}>
             {children}

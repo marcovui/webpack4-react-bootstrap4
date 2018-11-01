@@ -15,7 +15,7 @@ import fakeAuth from '../../auth/fakeAuth';
 
 const AuthButton = withRouter(
   ({ history }) => fakeAuth.isAuthenticated ? (
-    <div className="ml-5 text-white">
+    <div className="py-3 pl-3 text-white">
       {'Welcome! '}
       <button
         type="button"
@@ -28,7 +28,7 @@ const AuthButton = withRouter(
       </button>
     </div>
   ) : (
-    <div className="ml-5 text-white">
+    <div className="py-3 pl-3 text-white">
       {'You are not logged in.'}
     </div>
   )
@@ -79,7 +79,12 @@ class MenuNavigation extends Component {
             <NavbarBrand href="/">
               {'reactstrap'}
             </NavbarBrand>
-            <NavbarToggler onClick={this.toggle} />
+            { /* <NavbarToggler onClick={this.toggle} /> */ }
+            <button className={`navbar-toggler hamburger hamburger--collapse ${classIsOpen}`} type="button" onClick={this.toggle}>
+              <span className="hamburger-box">
+                <span className="hamburger-inner" />
+              </span>
+            </button>
             <Collapse navbar className={classIsOpen}>
               <Nav className="ml-auto" navbar>
                 <NavItem>
@@ -107,8 +112,10 @@ class MenuNavigation extends Component {
                     {'Protected'}
                   </NavLink>
                 </NavItem>
+                <NavItem>
+                  <AuthButton />
+                </NavItem>
               </Nav>
-              <AuthButton />
             </Collapse>
           </div>
         </Navbar>

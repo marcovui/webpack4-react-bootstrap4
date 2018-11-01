@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Header extends Component {
+class HeaderHero extends Component {
   constructor() {
     super();
     this.state = {};
@@ -9,15 +9,9 @@ class Header extends Component {
   render() {
     const { title } = this.props;
     return (
-      <header>
-        <div className="container">
-          <h2>
-            {title}
-          </h2>
-        </div>
-      </header>
+      <div>aaa</div>
     );
   }
 }
 
-export default Header;
+export default HeaderHero;
