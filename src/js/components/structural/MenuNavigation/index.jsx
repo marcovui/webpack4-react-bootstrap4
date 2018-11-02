@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   Collapse,
   Navbar,
@@ -71,21 +72,26 @@ class MenuNavigation extends Component {
     const { isOpen, isScrolling } = this.state;
     const classIsOpen = isOpen ? 'active' : '';
     const classIsScrolling = isScrolling ? 'is-scrolling' : '';
+    const { position } = this.props;
+    const collapseIsOpen = this.props.position === 'top' ? {
+      isOpen: this.state.isOpen
+    } : {};
+
     return (
       <React.Fragment>
         <div className={`overlay-bg ${classIsOpen}`} />
-        <Navbar color="dark" dark fixed="top" expand="lg" className={classIsScrolling}>
+        <Navbar color="dark" dark fixed="top" expand="lg" className={`${classIsScrolling} navigation-${position}`}>
           <div className="container">
             <NavbarBrand href="/">
               {'reactstrap'}
             </NavbarBrand>
-            { /* <NavbarToggler onClick={this.toggle} /> */ }
+            { /* <NavbarToggler onClick={this.toggle} /> */}
             <button className={`navbar-toggler hamburger hamburger--collapse ${classIsOpen}`} type="button" onClick={this.toggle}>
               <span className="hamburger-box">
                 <span className="hamburger-inner" />
               </span>
             </button>
-            <Collapse navbar className={classIsOpen}>
+            <Collapse navbar {...collapseIsOpen} className={classIsOpen}>
               <Nav className="ml-auto" navbar>
                 <NavItem>
                   <NavLink exact to="/" className="nav-link">
@@ -125,3 +131,11 @@ class MenuNavigation extends Component {
 }
 
 export default MenuNavigation;
+
+MenuNavigation.defaultProps = {
+  position: 'left' // top | left | right
+};
+
+MenuNavigation.propTypes = {
+  position: PropTypes.string
+};
