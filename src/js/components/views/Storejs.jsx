@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import store from 'store';
-import Header from '../Structural/Header';
+import HeaderHero from '../structural/Header';
 
 class Storejs extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      // title: '',
+    };
 
     this.addtoStore = this.addtoStore.bind(this);
     this.removeFromStore = this.removeFromStore.bind(this);
@@ -28,7 +30,7 @@ class Storejs extends Component {
     // const { subTitle } = this.props;
     return (
       <div>
-        <Header title={title} />
+        <HeaderHero title={title} />
         <div className="section">
           <div className="container">
             <a href="https://www.npmjs.com/package/store#user-content-installation" target="_blank" rel="noopener noreferrer">npm store documentation</a>

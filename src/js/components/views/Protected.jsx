@@ -1,12 +1,12 @@
 import React from 'react';
-import Header from '../Structural/Header';
+import HeaderHero from '../structural/Header';
 
 const Protected = (props) => {
   const { title } = props;
   const { subTitle } = props;
   return (
     <div>
-      <Header title={title} />
+      <HeaderHero title={title} />
       <div className="section">
         <div className="container">
           {subTitle}

@@ -1,14 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import Menu from './components/Structural/Menu';
-import MainContainer from './components/Structural/MainContainer';
+import MenuNavigation from './components/structural/MenuNavigation';
+import MainContainer from './components/structural/MainContainer';
 
 const App = () => (
   <Router>
-    <div>
-      <Menu />
+    <React.Fragment>
+      <MenuNavigation />
       <MainContainer />
-    </div>
+    </React.Fragment>
   </Router>
 );
 
