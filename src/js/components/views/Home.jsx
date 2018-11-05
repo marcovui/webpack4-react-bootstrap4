@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../structural/Header';
+import Header from '../Structural/Header';
 import ReactParallax from '../ReactParallax';
 
 

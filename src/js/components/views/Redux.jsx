@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import Header from '../structural/Header';
+import Header from '../Structural/Header';
 import store from '../../redux/store/index';
 import { addArticle } from '../../redux/actions/index';
 import RouteWithSubRoutes from '../../routes/RouteWithSubRoutes';
