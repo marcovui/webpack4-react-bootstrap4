@@ -1,7 +1,14 @@
+// Navigation menu height (scroll top 0)
 $navbar-h: 100px;
+// (scroll top > 200)
 $navbar-sm-h: $navbar-h - 40;
+// sidebar width
 $sidebar-w: 250px;
 $transition-speed: .4s;
+// Menu navigation theme
+$menu-navigation-color: theme-color("dark");
+// Side menu navigation theme
+$side-menu-navigation-color: $menu-navigation-color;
 
 .overlay-bg {
   position: fixed;
@@ -19,7 +26,6 @@ $transition-speed: .4s;
     visibility: visible;
   }
 }
-
 // Large devices (desktops, 992px and up)
 // It decreases .navbar height when scrolling down the page 
 // and it increases the height when scrolling back up.
@@ -27,20 +33,13 @@ $transition-speed: .4s;
   .navbar {
     height: $navbar-h;
     transition: height $transition-speed ease, background $transition-speed ease;
-    &.bg-dark {
-      background: theme-color("menu-transparent") !important;
-    }
     &.is-scrolling {
       height: $navbar-sm-h;
-      &.bg-dark {
-        background: rgba(theme-color("dark"), .9) !important;
-      }
     }
   }  
 }
 // Medium devices (tablets, less than 992px)
 @media (max-width: 991.98px) {
-  
   .navbar {
     &:not(.navigation-top){
       height: $navbar-sm-h;
@@ -69,7 +68,8 @@ $transition-speed: .4s;
         overflow: auto;
         // side menu scrollbar
         &::-webkit-scrollbar-track {
-          -webkit-box-shadow: inset 0 0 6px theme-color("dark");
+          box-shadow: inset 0 0 6px $menu-navigation-color;
+          -webkit-box-shadow: inset 0 0 6px $menu-navigation-color;
           background-color: #F5F5F5;
         }
         &::-webkit-scrollbar {
@@ -77,8 +77,9 @@ $transition-speed: .4s;
           background-color: #F5F5F5;
         }
         &::-webkit-scrollbar-thumb {
-          -webkit-box-shadow: inset 0 0 6px theme-color("dark");
-          background-color: lighten(theme-color("dark"), 15%);
+          box-shadow: inset 0 0 6px $menu-navigation-color;
+          -webkit-box-shadow: inset 0 0 6px $menu-navigation-color;
+          background-color: lighten($menu-navigation-color, 15%);
         }
         // end side menu scrollbar
         .nav-item {
@@ -88,7 +89,7 @@ $transition-speed: .4s;
           padding: 1em;
           border-bottom: 1px solid #333;
           &:hover {
-            background: lighten(theme-color("dark"), 1%);
+            background: lighten($menu-navigation-color, 1%);
           }
         }
       }
@@ -102,10 +103,8 @@ $transition-speed: .4s;
         }
       }
     }
-    // background: #333 !important;
   }
-  
-  .bg-dark .navbar-collapse {
-    background: theme-color("dark");
+  .navbar-collapse {
+    background: $side-menu-navigation-color;
   }
- }
+}

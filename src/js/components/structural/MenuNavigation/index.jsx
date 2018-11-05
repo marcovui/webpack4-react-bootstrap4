@@ -57,8 +57,9 @@ class MenuNavigation extends Component {
 
   handleScroll() {
     const scrollTop = window.scrollY;
+    const { resizeMenuNavAt } = this.props;
     this.setState({
-      isScrolling: (scrollTop > 200) === true
+      isScrolling: (scrollTop > resizeMenuNavAt) === true
     });
   }
 
@@ -70,11 +71,11 @@ class MenuNavigation extends Component {
 
   render() {
     const { isOpen, isScrolling } = this.state;
+    const { position } = this.props;
     const classIsOpen = isOpen ? 'active' : '';
     const classIsScrolling = isScrolling ? 'is-scrolling' : '';
-    const { position } = this.props;
-    const collapseIsOpen = this.props.position === 'top' ? {
-      isOpen: this.state.isOpen
+    const collapseIsOpen = position === 'top' ? {
+      isOpen
     } : {};
 
     return (
@@ -118,9 +119,13 @@ class MenuNavigation extends Component {
                     {'Protected'}
                   </NavLink>
                 </NavItem>
+                {
+                /*
                 <NavItem>
                   <AuthButton />
                 </NavItem>
+                */
+                }
               </Nav>
             </Collapse>
           </div>
@@ -133,9 +138,11 @@ class MenuNavigation extends Component {
 export default MenuNavigation;
 
 MenuNavigation.defaultProps = {
-  position: 'left' // top | left | right
+  position: 'left', // top | left | right
+  resizeMenuNavAt: 500
 };
 
 MenuNavigation.propTypes = {
-  position: PropTypes.string
+  position: PropTypes.string,
+  resizeMenuNavAt: PropTypes.number
 };
