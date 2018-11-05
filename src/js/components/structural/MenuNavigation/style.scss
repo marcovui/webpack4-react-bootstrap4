@@ -1,0 +1,110 @@
+// Navigation menu height (scroll top 0)
+$navbar-h: 100px;
+// (scroll top > 200)
+$navbar-sm-h: $navbar-h - 40;
+// sidebar width
+$sidebar-w: 250px;
+$transition-speed: .4s;
+// Menu navigation theme
+$menu-navigation-color: theme-color("dark");
+// Side menu navigation theme
+$side-menu-navigation-color: $menu-navigation-color;
+
+.overlay-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.3);
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity $transition-speed ease-in, visibility 0s;
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+// Large devices (desktops, 992px and up)
+// It decreases .navbar height when scrolling down the page 
+// and it increases the height when scrolling back up.
+@media (min-width: 992px) {
+  .navbar {
+    height: $navbar-h;
+    transition: height $transition-speed ease, background $transition-speed ease;
+    &.is-scrolling {
+      height: $navbar-sm-h;
+    }
+  }  
+}
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+  .navbar {
+    &:not(.navigation-top){
+      height: $navbar-sm-h;
+      .collapse:not(.show) {
+        display: block;
+      }
+      // side menu styling;
+      .navbar-collapse {
+        position: fixed;
+        top: $navbar-sm-h;
+        left: -$sidebar-w;
+        width: $sidebar-w;
+        height: 100vh;
+        box-shadow: 2px 5px 5px rgba(0,0,0,0.3);
+        transform: translateX(0);
+        transition: transform $transition-speed ease, visibility $transition-speed ease;
+        visibility: hidden;
+        &.active {
+          transform: translateX($sidebar-w);
+          visibility: visible;
+        }
+
+      }
+      .navbar-nav {
+        height: calc(100% - #{$navbar-sm-h});
+        overflow: auto;
+        // side menu scrollbar
+        &::-webkit-scrollbar-track {
+          box-shadow: inset 0 0 6px $menu-navigation-color;
+          -webkit-box-shadow: inset 0 0 6px $menu-navigation-color;
+          background-color: #F5F5F5;
+        }
+        &::-webkit-scrollbar {
+          width: 8px;
+          background-color: #F5F5F5;
+        }
+        &::-webkit-scrollbar-thumb {
+          box-shadow: inset 0 0 6px $menu-navigation-color;
+          -webkit-box-shadow: inset 0 0 6px $menu-navigation-color;
+          background-color: lighten($menu-navigation-color, 15%);
+        }
+        // end side menu scrollbar
+        .nav-item {
+          border-bottom: 1px solid #404040;
+        }
+        .nav-link {
+          padding: 1em;
+          border-bottom: 1px solid #333;
+          &:hover {
+            background: lighten($menu-navigation-color, 1%);
+          }
+        }
+      }
+    }
+    &.navigation-right {
+      .navbar-collapse {
+        left: auto;
+        right: -$sidebar-w;
+        &.active {
+          transform: translateX(-$sidebar-w);
+        }
+      }
+    }
+  }
+  .navbar-collapse {
+    background: $side-menu-navigation-color;
+  }
+}
