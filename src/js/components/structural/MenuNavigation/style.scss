@@ -26,6 +26,12 @@ $side-menu-navigation-color: $menu-navigation-color;
     visibility: visible;
   }
 }
+.navbar {
+  .dropdown-menu {
+    border: none;
+    background: $menu-navigation-color;
+  }
+}
 // Large devices (desktops, 992px and up)
 // It decreases .navbar height when scrolling down the page 
 // and it increases the height when scrolling back up.
@@ -103,6 +109,9 @@ $side-menu-navigation-color: $menu-navigation-color;
         }
       }
     }
+  }
+  .dropdown-menu {
+    margin-left: 20px;
   }
   .navbar-collapse {
     background: $side-menu-navigation-color;

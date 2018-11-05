@@ -32,6 +32,7 @@
         "jsx-a11y/label-has-associated-control": 0,
         "react/jsx-filename-extension": 0,
         "no-confusing-arrow": 0,
-        "no-unused-vars": 0
+        "no-unused-vars": 0,
+        "react/no-multi-comp": 0
     }
 }
