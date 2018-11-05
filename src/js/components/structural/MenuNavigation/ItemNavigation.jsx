@@ -8,7 +8,7 @@ class ItemNavigation extends PureComponent {
     const { title, path, children } = this.props;
     return (
       <NavItem>
-        <NavLink exact to={path} className="nav-link">
+        <NavLink exact to={path} className="nav-link" onClick={this.props.toggle}>
           {title}
         </NavLink>
       </NavItem>

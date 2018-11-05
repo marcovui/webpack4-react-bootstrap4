@@ -55,7 +55,7 @@ class MenuNavigation extends Component {
 
     return (
       <React.Fragment>
-        <div className={`overlay-bg ${classIsOpen}`} />
+        <div role="button" tabIndex={0} className={`overlay-bg ${classIsOpen}`} onClick={this.toggle} onKeyDown={this.toggle} />
         <Navbar color="dark" dark fixed="top" expand="lg" className={`${classIsScrolling} navigation-${position}`}>
           <div className="container">
             <NavbarBrand href="/">
@@ -68,7 +68,7 @@ class MenuNavigation extends Component {
               </span>
             </button>
             <Collapse navbar {...collapseIsOpen} className={classIsOpen}>
-              <ListItemNavigation data={Routes} />
+              <ListItemNavigation data={Routes} toggle={this.toggle} />
               <AuthButton />
             </Collapse>
           </div>
@@ -82,7 +82,7 @@ export default MenuNavigation;
 
 MenuNavigation.defaultProps = {
   position: 'left', // top | left | right
-  resizeMenuNavAt: 500
+  resizeMenuNavAt: 200
 };
 
 MenuNavigation.propTypes = {

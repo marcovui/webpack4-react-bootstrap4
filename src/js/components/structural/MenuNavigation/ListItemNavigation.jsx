@@ -28,7 +28,7 @@ class ListItemNavigation extends PureComponent {
     return data.map((node, index) => {
       if (node.routes == null) {
         return (
-          <ItemNavigation key={node.title} {...node} />
+          <ItemNavigation key={node.title} {...node} toggle={this.props.toggle} />
         );
       }
 
@@ -38,7 +38,7 @@ class ListItemNavigation extends PureComponent {
             {node.title}
           </DropdownToggle>
           <DropdownMenu right tag="ul">
-            <SubItemNavigation routes={node.routes} />
+            <SubItemNavigation routes={node.routes} toggle={this.props.toggle} />
           </DropdownMenu>
         </UncontrolledDropdown>
       );

@@ -8,7 +8,7 @@ class SubItemNavigation extends PureComponent {
     const { routes } = this.props;
     return routes.map((node, index) => (
       <NavItem key={node.title}>
-        <NavLink to={node.path} className="nav-link">
+        <NavLink to={node.path} className="nav-link" onClick={this.props.toggle}>
           {node.title}
         </NavLink>
       </NavItem>
