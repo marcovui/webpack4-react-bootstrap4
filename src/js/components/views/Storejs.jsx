@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import store from 'store';
-import Header from '../structural/Header';
+import Header from '../Structural/Header';
 
 class Storejs extends Component {
   constructor() {
