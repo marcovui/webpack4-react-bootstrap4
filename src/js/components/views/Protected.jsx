@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../Structural/Header';
+import Header from '../structural/Header';
 
 const Protected = (props) => {
   const { title } = props;

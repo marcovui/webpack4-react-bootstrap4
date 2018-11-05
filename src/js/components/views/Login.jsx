@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Redirect
 } from 'react-router-dom';
-import Header from '../Structural/Header';
+import Header from '../structural/Header';
 import fakeAuth from '../auth/fakeAuth';
 
 class Login extends React.Component {

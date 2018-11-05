@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../Structural/Header';
+import Header from '../structural/Header';
 
 const Es6Features = (props) => {
   const { title } = props;
