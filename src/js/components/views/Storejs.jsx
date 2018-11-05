@@ -5,9 +5,7 @@ import Header from '../Structural/Header';
 class Storejs extends Component {
   constructor() {
     super();
-    this.state = {
-      // title: '',
-    };
+    this.state = {};
 
     this.addtoStore = this.addtoStore.bind(this);
     this.removeFromStore = this.removeFromStore.bind(this);
