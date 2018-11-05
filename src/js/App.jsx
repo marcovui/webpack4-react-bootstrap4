@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import HeaderHero from './components/structural/Menu';
+import MenuNavigation from './components/structural/MenuNavigation';
 import MainContainer from './components/structural/MainContainer';
 
 const App = () => (
