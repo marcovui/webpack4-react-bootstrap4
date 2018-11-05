@@ -26,9 +26,6 @@ module.exports = (env, argv) => {
       filename: 'main.js',
       publicPath: '/'
     },
-    devServer: {
-      historyApiFallback: true,
-    },
     optimization: {
       minimizer: [
         new UglifyJsPlugin({

@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Redirect
 } from 'react-router-dom';
-import HeaderHero from '../Structural/Header';
+import Header from '../Structural/Header';
 import fakeAuth from '../auth/fakeAuth';
 
 class Login extends React.Component {
@@ -33,7 +33,7 @@ class Login extends React.Component {
     const { subTitle } = this.props;
     return (
       <div>
-        <HeaderHero title={title} />
+        <Header title={title} />
         <div className="section">
           <div className="container">
             {subTitle}

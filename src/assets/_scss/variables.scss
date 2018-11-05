@@ -3,6 +3,4 @@ $font-family-sans-serif: Arial, Helvetica, sans-serif;
 $body-bg: #fff;
 $body-color: #333;
 
-$menu-transparent: rgba(0,0,0,0.3);
-
-$theme-colors: ( "menu-transparent": $menu-transparent, "main": #1A495B, "action": #9e7f72);
+$theme-colors: ( "transparent": transparent, "main": #1A495B, "action": #9e7f72);

@@ -1,12 +1,12 @@
 import React from 'react';
-import HeaderHero from '../Structural/Header';
+import Header from '../Structural/Header';
 
 const Es6Features = (props) => {
   const { title } = props;
   // const { subTitle } = props;
   return (
     <div>
-      <HeaderHero title={title} />
+      <Header title={title} />
       <div className="section">
         <div className="container">
           <a href="https://blog.pragmatists.com/top-10-es6-features-by-example-80ac878794bb" target="_blank" rel="noopener noreferrer" className="btn btn-link">Top 10 ES6 features by example</a>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import HeaderHero from '../Structural/Header';
+import Header from '../Structural/Header';
 import store from '../../redux/store/index';
 import { addArticle } from '../../redux/actions/index';
 import RouteWithSubRoutes from '../../routes/RouteWithSubRoutes';
@@ -10,7 +10,7 @@ window.addArticle = addArticle;
 
 const Redux = ({ routes }) => (
   <div>
-    <HeaderHero title="Redux" />
+    <Header title="Redux" />
     <div className="section">
       <div className="container">
         <ul>

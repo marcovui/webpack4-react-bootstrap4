@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import {
   Collapse,
   Navbar,
@@ -12,11 +11,11 @@ import {
   NavLink,
   withRouter
 } from 'react-router-dom';
-import fakeAuth from '../../auth/fakeAuth';
+import fakeAuth from '../auth/fakeAuth';
 
 const AuthButton = withRouter(
   ({ history }) => fakeAuth.isAuthenticated ? (
-    <div className="py-3 pl-3 text-white">
+    <div className="ml-5 text-white">
       {'Welcome! '}
       <button
         type="button"
@@ -29,38 +28,20 @@ const AuthButton = withRouter(
       </button>
     </div>
   ) : (
-    <div className="py-3 pl-3 text-white">
+    <div className="ml-5 text-white">
       {'You are not logged in.'}
     </div>
   )
 );
 
-class MenuNavigation extends Component {
+class Menu extends Component {
   constructor() {
     super();
     this.state = {
-      isOpen: false,
-      isScrolling: false
+      isOpen: false
     };
 
-    this.handleScroll = this.handleScroll.bind(this);
     this.toggle = this.toggle.bind(this);
-  }
-
-  componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
-  }
-
-  handleScroll() {
-    const scrollTop = window.scrollY;
-    const { resizeMenuNavAt } = this.props;
-    this.setState({
-      isScrolling: (scrollTop > resizeMenuNavAt) === true
-    });
   }
 
   toggle() {
@@ -70,29 +51,16 @@ class MenuNavigation extends Component {
   }
 
   render() {
-    const { isOpen, isScrolling } = this.state;
-    const { position } = this.props;
-    const classIsOpen = isOpen ? 'active' : '';
-    const classIsScrolling = isScrolling ? 'is-scrolling' : '';
-    const collapseIsOpen = position === 'top' ? {
-      isOpen
-    } : {};
-
+    const { isOpen } = this.state;
     return (
-      <React.Fragment>
-        <div className={`overlay-bg ${classIsOpen}`} />
-        <Navbar color="dark" dark fixed="top" expand="lg" className={`${classIsScrolling} navigation-${position}`}>
+      <div>
+        <Navbar color="transparent" light fixed="top" expand="lg">
           <div className="container">
             <NavbarBrand href="/">
               {'reactstrap'}
             </NavbarBrand>
-            { /* <NavbarToggler onClick={this.toggle} /> */}
-            <button className={`navbar-toggler hamburger hamburger--collapse ${classIsOpen}`} type="button" onClick={this.toggle}>
-              <span className="hamburger-box">
-                <span className="hamburger-inner" />
-              </span>
-            </button>
-            <Collapse navbar {...collapseIsOpen} className={classIsOpen}>
+            <NavbarToggler onClick={this.toggle} />
+            <Collapse isOpen={isOpen} navbar>
               <Nav className="ml-auto" navbar>
                 <NavItem>
                   <NavLink exact to="/" className="nav-link">
@@ -119,30 +87,14 @@ class MenuNavigation extends Component {
                     {'Protected'}
                   </NavLink>
                 </NavItem>
-                {
-                /*
-                <NavItem>
-                  <AuthButton />
-                </NavItem>
-                */
-                }
               </Nav>
+              <AuthButton />
             </Collapse>
           </div>
         </Navbar>
-      </React.Fragment>
+      </div>
     );
   }
 }
 
-export default MenuNavigation;
-
-MenuNavigation.defaultProps = {
-  position: 'left', // top | left | right
-  resizeMenuNavAt: 500
-};
-
-MenuNavigation.propTypes = {
-  position: PropTypes.string,
-  resizeMenuNavAt: PropTypes.number
-};
+export default Menu;
