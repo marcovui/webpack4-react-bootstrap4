@@ -1,16 +1,16 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { NavItem } from 'reactstrap';
-import { NavLink } from 'react-router-dom';
+import NavLinkNavigation from './NavLinkNavigation';
 
 class SubItemNavigation extends PureComponent {
   render() {
     const { routes } = this.props;
     return routes.map((node, index) => (
       <NavItem key={node.title}>
-        <NavLink to={node.path} className="nav-link" onClick={this.props.toggle}>
-          {node.title}
-        </NavLink>
+        <NavLinkNavigation {...node} toggle={this.props.toggle}>
+          <span>{node.title}</span>
+        </NavLinkNavigation>
       </NavItem>
     ));
   }

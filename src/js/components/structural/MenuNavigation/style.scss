@@ -36,6 +36,9 @@ $side-menu-navigation-color: $menu-navigation-color;
 // It decreases .navbar height when scrolling down the page 
 // and it increases the height when scrolling back up.
 @media (min-width: 992px) {
+  .overlay-bg {
+    display: none;
+  }
   .navbar {
     height: $navbar-h;
     transition: height $transition-speed ease, background $transition-speed ease;
@@ -111,7 +114,8 @@ $side-menu-navigation-color: $menu-navigation-color;
     }
   }
   .dropdown-menu {
-    margin-left: 20px;
+    margin: 0;
+    padding: 0;
   }
   .navbar-collapse {
     background: $side-menu-navigation-color;

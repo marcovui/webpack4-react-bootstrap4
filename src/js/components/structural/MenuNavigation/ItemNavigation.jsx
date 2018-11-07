@@ -1,16 +1,16 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { NavItem } from 'reactstrap';
-import { NavLink } from 'react-router-dom';
+import NavLinkNavigation from './NavLinkNavigation';
 
 class ItemNavigation extends PureComponent {
   render() {
-    const { title, path, children } = this.props;
+    const { title, ...rest } = this.props;
     return (
       <NavItem>
-        <NavLink exact to={path} className="nav-link" onClick={this.props.toggle}>
-          {title}
-        </NavLink>
+        <NavLinkNavigation {...rest} clasNasme="nav-link">
+          <span>{title}</span>
+        </NavLinkNavigation>
       </NavItem>
     );
   }
