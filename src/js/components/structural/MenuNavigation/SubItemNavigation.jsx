@@ -5,10 +5,10 @@ import NavLinkNavigation from './NavLinkNavigation';
 
 class SubItemNavigation extends PureComponent {
   render() {
-    const { routes } = this.props;
+    const { routes, toggle } = this.props;
     return routes.map((node, index) => (
       <NavItem key={node.title}>
-        <NavLinkNavigation {...node} toggle={this.props.toggle}>
+        <NavLinkNavigation {...node} toggle={toggle}>
           <span>{node.title}</span>
         </NavLinkNavigation>
       </NavItem>

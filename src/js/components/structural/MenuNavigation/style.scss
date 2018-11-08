@@ -1,3 +1,4 @@
+// CONFIGURATION
 // Navigation menu height (scroll top 0)
 $navbar-h: 100px;
 // (scroll top > 200)
@@ -9,6 +10,11 @@ $transition-speed: .4s;
 $menu-navigation-color: theme-color("dark");
 // Side menu navigation theme
 $side-menu-navigation-color: $menu-navigation-color;
+// side menu visibility breakpoint | https://getbootstrap.com/docs/4.1/layout/overview/
+// !!! modify <Navbar expand="[breakpoint]" /> accordingly
+$side-menu-breakpoint-up: md;
+$side-menu-breakpoint-down: sm; // always 1 measure smaller then $side-menu-breakpoint-up
+// ############
 
 .overlay-bg {
   position: fixed;
@@ -35,7 +41,7 @@ $side-menu-navigation-color: $menu-navigation-color;
 // Large devices (desktops, 992px and up)
 // It decreases .navbar height when scrolling down the page 
 // and it increases the height when scrolling back up.
-@media (min-width: 992px) {
+@include media-breakpoint-up($side-menu-breakpoint-up){
   .overlay-bg {
     display: none;
   }
@@ -45,10 +51,31 @@ $side-menu-navigation-color: $menu-navigation-color;
     &.is-scrolling {
       height: $navbar-sm-h;
     }
-  }  
+    .dropdown-menu {
+      position: fixed !important;
+      /* left: 0; */
+      top: auto;
+      left: 0;
+      right: 0;
+      margin: 0;
+      border-radius: 0;
+      margin-top: -2px;
+      background: #333;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      .container {
+        display: flex;
+      }
+      .nav-item {
+        
+      }
+    }
+  }
 }
 // Medium devices (tablets, less than 992px)
-@media (max-width: 991.98px) {
+@include media-breakpoint-down($side-menu-breakpoint-down) {
   .navbar {
     &:not(.navigation-top){
       height: $navbar-sm-h;
@@ -99,6 +126,10 @@ $side-menu-navigation-color: $menu-navigation-color;
           border-bottom: 1px solid #333;
           &:hover {
             background: lighten($menu-navigation-color, 1%);
+          }
+          span {
+            margin-left: 20px;
+            display: block;
           }
         }
       }

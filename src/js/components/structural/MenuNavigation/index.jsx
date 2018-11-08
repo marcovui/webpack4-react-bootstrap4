@@ -56,12 +56,12 @@ class MenuNavigation extends Component {
     return (
       <React.Fragment>
         <div role="button" tabIndex={0} className={`overlay-bg ${classIsOpen}`} onClick={this.toggle} onKeyDown={this.toggle} />
-        <Navbar color="dark" dark fixed="top" expand="lg" className={`${classIsScrolling} navigation-${position}`}>
+        <Navbar color="dark" dark fixed="top" expand="md" className={`${classIsScrolling} navigation-${position}`}>
           <div className="container">
             <NavbarBrand href="/">
               {'reactstrap'}
             </NavbarBrand>
-            { /* <NavbarToggler onClick={this.toggle} /> */}
+            { /* <NavbarToggler onClick={this.toggle} /> */ }
             <button className={`navbar-toggler hamburger hamburger--collapse ${classIsOpen}`} type="button" onClick={this.toggle}>
               <span className="hamburger-box">
                 <span className="hamburger-inner" />
@@ -69,7 +69,7 @@ class MenuNavigation extends Component {
             </button>
             <Collapse navbar {...collapseIsOpen} className={classIsOpen}>
               <ListItemNavigation data={Routes} toggle={this.toggle} />
-              <AuthButton />
+              { /* <AuthButton /> */ }
             </Collapse>
           </div>
         </Navbar>

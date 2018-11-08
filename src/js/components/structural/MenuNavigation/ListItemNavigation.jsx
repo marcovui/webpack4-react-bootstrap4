@@ -16,6 +16,7 @@ import SubItemNavigation from './SubItemNavigation';
 
 class ListItemNavigation extends PureComponent {
   list(data) {
+    const { toggle } = this.props;
     const children = (routes) => {
       if (routes) {
         return (
@@ -28,7 +29,7 @@ class ListItemNavigation extends PureComponent {
     return data.map((node, index) => {
       if (node.routes == null) {
         return (
-          <ItemNavigation key={node.title} {...node} toggle={this.props.toggle} />
+          <ItemNavigation key={node.title} {...node} toggle={toggle} />
         );
       }
 
@@ -37,8 +38,8 @@ class ListItemNavigation extends PureComponent {
           <DropdownToggle nav caret>
             {node.title}
           </DropdownToggle>
-          <DropdownMenu right tag="ul">
-            <SubItemNavigation routes={node.routes} toggle={this.props.toggle} />
+          <DropdownMenu tag="ul">
+            <SubItemNavigation routes={node.routes} toggle={toggle} />
           </DropdownMenu>
         </UncontrolledDropdown>
       );

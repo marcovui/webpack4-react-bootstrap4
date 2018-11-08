@@ -11,9 +11,9 @@ class MainContents extends Component {
   render() {
     // const { SeoTitle } = this.state;
     return (
-      <React.Fragment>
+      <div>
         {Routes.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}
-      </React.Fragment>
+      </div>
     );
   }
 }
