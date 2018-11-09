@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
   Collapse,
@@ -14,17 +14,9 @@ import {
 import ItemNavigation from './ItemNavigation';
 import SubItemNavigation from './SubItemNavigation';
 
-class ListItemNavigation extends PureComponent {
+class ListItemNavigation extends Component {
   list(data) {
     const { toggle } = this.props;
-    const children = (routes) => {
-      if (routes) {
-        return (
-          <ul>{ this.list(routes) }</ul>
-        );
-      }
-      return (null);
-    };
 
     return data.map((node, index) => {
       if (node.routes == null) {

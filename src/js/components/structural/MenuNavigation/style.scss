@@ -5,11 +5,14 @@ $navbar-h: 100px;
 $navbar-sm-h: $navbar-h - 40;
 // sidebar width
 $sidebar-w: 250px;
+// animation speed
 $transition-speed: .4s;
 // Menu navigation theme
 $menu-navigation-color: theme-color("dark");
 // Side menu navigation theme
 $side-menu-navigation-color: $menu-navigation-color;
+// navigation items opacity on hover 
+$nav-link-opacity: 5%;
 // side menu visibility breakpoint | https://getbootstrap.com/docs/4.1/layout/overview/
 // !!! modify <Navbar expand="[breakpoint]" /> accordingly
 $side-menu-breakpoint-up: md;
@@ -36,8 +39,28 @@ $side-menu-breakpoint-down: sm; // always 1 measure smaller then $side-menu-brea
   .dropdown-menu {
     border: none;
     background: $menu-navigation-color;
+    overflow: hidden;
   }
 }
+
+@mixin styled-nav-link {
+  .nav-item {
+    border-bottom: 1px solid #404040;
+  }
+  .nav-link {
+    padding: 1em;
+    border-bottom: 1px solid #333;
+    &:hover {
+      background: lighten($menu-navigation-color, $nav-link-opacity);
+      border-bottom-color: lighten(#333, $nav-link-opacity);
+    }
+    span {
+      margin-left: 20px;
+      display: block;
+    }
+  }
+}
+
 // Large devices (desktops, 992px and up)
 // It decreases .navbar height when scrolling down the page 
 // and it increases the height when scrolling back up.
@@ -47,29 +70,20 @@ $side-menu-breakpoint-down: sm; // always 1 measure smaller then $side-menu-brea
   }
   .navbar {
     height: $navbar-h;
-    transition: height $transition-speed ease, background $transition-speed ease;
+    transition: height $transition-speed linear, background $transition-speed linear;
     &.is-scrolling {
       height: $navbar-sm-h;
+      .dropdown-menu {
+        top: 48px;
+      }
     }
     .dropdown-menu {
-      position: fixed !important;
-      /* left: 0; */
-      top: auto;
-      left: 0;
-      right: 0;
-      margin: 0;
+      padding: 0;
+      top: 68px;
       border-radius: 0;
-      margin-top: -2px;
-      background: #333;
-      -webkit-box-orient: horizontal;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-      flex-direction: row;
-      .container {
-        display: flex;
-      }
+      @include styled-nav-link;
       .nav-item {
-        
+        min-width: 300px;
       }
     }
   }
@@ -118,20 +132,7 @@ $side-menu-breakpoint-down: sm; // always 1 measure smaller then $side-menu-brea
           background-color: lighten($menu-navigation-color, 15%);
         }
         // end side menu scrollbar
-        .nav-item {
-          border-bottom: 1px solid #404040;
-        }
-        .nav-link {
-          padding: 1em;
-          border-bottom: 1px solid #333;
-          &:hover {
-            background: lighten($menu-navigation-color, 1%);
-          }
-          span {
-            margin-left: 20px;
-            display: block;
-          }
-        }
+        @include styled-nav-link;
       }
     }
     &.navigation-right {

@@ -1,9 +1,9 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { NavItem } from 'reactstrap';
 import NavLinkNavigation from './NavLinkNavigation';
 
-class ItemNavigation extends PureComponent {
+class ItemNavigation extends Component {
   render() {
     const { title, ...rest } = this.props;
     return (

@@ -1,7 +1,10 @@
 import React from 'react';
 import {
+  BrowserRouter as Router,
   Route,
-  Redirect
+  Link,
+  Redirect,
+  withRouter
 } from 'react-router-dom';
 import fakeAuth from '../components/auth/fakeAuth';
 
