@@ -11,7 +11,7 @@ class MainContents extends Component {
   render() {
     // const { SeoTitle } = this.state;
     return (
-      <div>
+      <div className="main">
         {Routes.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}
       </div>
     );

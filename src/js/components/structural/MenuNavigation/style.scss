@@ -1,3 +1,7 @@
+@import "../../../../../node_modules/bootstrap/scss/functions";
+@import "../../../../../node_modules/bootstrap/scss/variables";
+@import "../../../../../node_modules/bootstrap/scss/mixins";
+
 // CONFIGURATION
 // Navigation menu height (scroll top 0)
 $navbar-h: 100px;
@@ -19,6 +23,10 @@ $side-menu-breakpoint-up: md;
 $side-menu-breakpoint-down: sm; // always 1 measure smaller then $side-menu-breakpoint-up
 // ############
 
+body {
+  margin-top: $navbar-h;
+}
+
 .overlay-bg {
   position: fixed;
   top: 0;
@@ -29,7 +37,7 @@ $side-menu-breakpoint-down: sm; // always 1 measure smaller then $side-menu-brea
   z-index: 100;
   opacity: 0;
   visibility: hidden;
-  transition: opacity $transition-speed ease-in, visibility 0s;
+  transition: opacity $transition-speed ease-in, visibility $transition-speed ease-in;
   &.active {
     opacity: 1;
     visibility: visible;

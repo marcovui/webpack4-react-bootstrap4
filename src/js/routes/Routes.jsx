@@ -7,6 +7,7 @@ import Protected from '../components/views/Protected';
 import Login from '../components/views/Login';
 import Es6Features from '../components/views/Es6Features';
 import Storejs from '../components/views/Storejs';
+import Accordion from '../components/views/Accordion';
 
 const Routes = [
   {
@@ -39,6 +40,20 @@ const Routes = [
         component: Fetch,
         title: 'Fetch',
         subTitle: 'sub title'
+      }
+    ]
+  },
+  {
+    path: '/components',
+    component: Accordion,
+    title: 'Components',
+    subTitle: '',
+    routes: [
+      {
+        path: '/components/accordion',
+        component: Accordion,
+        title: 'Accordion',
+        subTitle: ''
       }
     ]
   },

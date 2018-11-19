@@ -8,6 +8,7 @@
 // Components
 @import "../../js/components/structural/MenuNavigation/style";
 @import "../../js/components/ReactParallax/style";
+@import "../../js/components/Accordion/style";
 
 body {
   font-family: OpenSans-Bold, 'Open Sans', sans-serif;
@@ -17,6 +18,9 @@ header {
   padding: 100px 0 50px;
   background: theme-color("main");
   color: #fff;
+}
+.main {
+  padding: 20px;
 }
 .section {
   padding: 30px 0;

@@ -9,7 +9,7 @@ class HeaderHero extends Component {
   render() {
     const { title } = this.props;
     return (
-      <div>aaa</div>
+      <div>Header</div>
     );
   }
 }
