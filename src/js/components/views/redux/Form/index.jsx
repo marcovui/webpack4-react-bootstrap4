@@ -1,17 +1,10 @@
+
 // src/js/components/Form.js
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import uuidv1 from 'uuid';
-import List from './List';
-import { addArticle, importArticles, importArticlesAxios } from '../../../redux/actions/index';
+import List from '../List';
 
-const mapDispatchToProps = dispatch => ({
-  addArticleDisp: article => dispatch(addArticle(article)),
-  importArticlesDisp: () => dispatch(importArticles()),
-  importArticlesAxiosDisp: () => dispatch(importArticlesAxios())
-});
-
-class ConnectedForm extends Component {
+class Form extends Component {
   constructor() {
     super();
     this.state = {
@@ -96,5 +89,4 @@ class ConnectedForm extends Component {
   }
 }
 
-const Form = connect(null, mapDispatchToProps)(ConnectedForm);
 export default Form;

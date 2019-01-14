@@ -2,11 +2,11 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import HeaderHero from '../structural/Header';
 import store from '../../redux/store/index';
-import { addArticle } from '../../redux/actions/index';
+// import { addArticle } from '../../redux/actions/index';
 import RouteWithSubRoutes from '../../routes/RouteWithSubRoutes';
 
-window.store = store;
-window.addArticle = addArticle;
+// window.store = store;
+// window.addArticle = addArticle;
 
 const Redux = ({ routes }) => (
   <div>
