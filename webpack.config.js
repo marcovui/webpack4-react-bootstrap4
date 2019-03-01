@@ -11,7 +11,7 @@ const DEFAULT_THEME = 'default';
 const resolveThemeName = (argv) => {
   const target = argv.THEME;
   return (!target) ? DEFAULT_THEME : target;
-}
+};
 
 module.exports = (env, argv) => {
   const devMode = argv.mode !== 'production';
@@ -48,7 +48,7 @@ module.exports = (env, argv) => {
         // Options similar to the same options in webpackOptions.output
         // both options are optional
         filename: devMode ? '[name].css' : '[name].[hash].css',
-        chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
+        chunkFilename: devMode ? '[id].css' : '[id].[hash].css'
       }),
       new CopyWebpackPlugin([{
         from: 'src/assets/images',
